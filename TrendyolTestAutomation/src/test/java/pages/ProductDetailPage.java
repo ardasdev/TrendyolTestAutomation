@@ -13,9 +13,9 @@ public class ProductDetailPage {
     private WebDriver driver;
     private WebDriverWait wait;
 
-    By ilkUrunKartLocater = By.cssSelector("[data-product-index='0']");
-    By urunAdıLocater = By.cssSelector("[data-testid='product-title']");   // bu locator şüpheli — aşağıda açıklıyorum
-    By urunFiyatiLocater = By.className("new-price");
+    private By ilkUrunKartLocater = By.cssSelector("[data-product-index='0']");
+    private By urunAdıLocater = By.cssSelector("[data-testid='product-title']");   // bu locator şüpheli — aşağıda açıklıyorum
+    private By urunFiyatiLocater = By.className("new-price");
 
     public ProductDetailPage(WebDriver driver) {
         this.driver = driver;

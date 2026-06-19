@@ -14,13 +14,13 @@ public class CartPage {
     private WebDriver driver;
     private WebDriverWait wait;
 
-    By ilkUrunKartLocater = By.cssSelector("[data-product-index='0']");
-    By ilkUrunButonLocater = By.cssSelector("[data-product-index='0'] .add-to-basket-button");
-    By sepetUrunSayısıLocater = By.className("basket-count");
-    By sepeteGitLocater = By.className("basket-wrapper-link");
-    By sepetBaslikLocater = By.className("basket-header-title");
-    By arttırButonLocater = By.cssSelector("[data-testid='quantity-button-increment'");
-    By adetSelector = By.cssSelector("[data-testid='quantity-selector']");
+    private By ilkUrunKartLocater = By.cssSelector("[data-product-index='0']");
+    private By ilkUrunButonLocater = By.cssSelector("[data-product-index='0'] .add-to-basket-button");
+    private By sepetUrunSayısıLocater = By.className("basket-count");
+    private By sepeteGitLocater = By.className("basket-wrapper-link");
+    private By sepetBaslikLocater = By.className("basket-header-title");
+    private By arttırButonLocater = By.cssSelector("[data-testid='quantity-button-increment'");
+    private By adetSelector = By.cssSelector("[data-testid='quantity-selector']");
 
     public CartPage(WebDriver driver) {
         this.driver = driver;

@@ -15,8 +15,8 @@ public class HomePage {
     private WebDriverWait wait;
     private Actions actions;
 
-    By categoryTabLocater = By.className("category-tab-text");
-    By eletrikTabLocater = By.cssSelector("a[href*='elektronik']");
+    private By categoryTabLocater = By.className("category-tab-text");
+    private By eletrikTabLocater = By.cssSelector("a[href*='elektronik']");
 
     public HomePage(WebDriver driver) {
         this.driver = driver;

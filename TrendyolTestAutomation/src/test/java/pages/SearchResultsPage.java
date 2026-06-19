@@ -11,15 +11,15 @@ public class SearchResultsPage {
 
     private WebDriver driver;
 
-     By searchBoxLocator = By.className("suggestion-placeholder");
-     By searchBoxInputLocator = By.className("search-bar-new-input-active-field");
-     By searcBoxButtonLocator = By.className("search-bar-new-input-active-search");
-     By sonucBasligiLocator = By.cssSelector("h1[data-testid='title']");
-     By selectBoxLocator = By.className("select-box");
-     By fiyatBaslikLocator = By.xpath("//div[@data-testid='aggregation-header'][.//h3[text()='Fiyat']]");
-     By priceInputMin = By.id("price-range-input-min");
-     By priceInputMax = By.id("price-range-input-max");
-     By priceButton = By.className("price-range-button");
+    private By searchBoxLocator = By.className("suggestion-placeholder");
+    private By searchBoxInputLocator = By.className("search-bar-new-input-active-field");
+    private By searcBoxButtonLocator = By.className("search-bar-new-input-active-search");
+    private By sonucBasligiLocator = By.cssSelector("h1[data-testid='title']");
+    private By selectBoxLocator = By.className("select-box");
+    private By fiyatBaslikLocator = By.xpath("//div[@data-testid='aggregation-header'][.//h3[text()='Fiyat']]");
+    private By priceInputMin = By.id("price-range-input-min");
+    private By priceInputMax = By.id("price-range-input-max");
+    private By priceButton = By.className("price-range-button");
 
 
 
