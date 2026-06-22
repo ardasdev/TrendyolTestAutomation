@@ -6,6 +6,7 @@ import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import pages.CartPage;
 import utils.DriverManager;
+import utils.Methods;
 
 public class CartSteps {
 
@@ -34,10 +35,9 @@ public class CartSteps {
         String baslik = cartPage.getSepetBaslik();
         Assert.assertTrue("Sepette ürün görünmüyor. Başlık: " + baslik, baslik.contains("Ürün"));
     }
-
     @When("ürünün adet artırma butonuna tıklar")
     public void ürünün_adet_artırma_butonuna_tıklar() {
-        cartPage.urunSayısıArttır();
+        cartPage.urunSayisiArttir();
     }
 
     @Then("ürün adedi {string} olur")

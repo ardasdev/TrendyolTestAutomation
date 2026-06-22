@@ -1,49 +1,27 @@
 package pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
+import utils.Methods;
 
 public class ProductDetailPage {
 
-    private WebDriver driver;
-    private WebDriverWait wait;
-
-    private By ilkUrunKartLocater = By.cssSelector("[data-product-index='0']");
-    private By urunAdıLocater = By.cssSelector("[data-testid='product-title']");   // bu locator şüpheli — aşağıda açıklıyorum
-    private By urunFiyatiLocater = By.className("new-price");
-
-    public ProductDetailPage(WebDriver driver) {
-        this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-    }
+    private Methods methods = new Methods();
+    public ProductDetailPage(WebDriver driver) { }
 
     public void urunTıkla(){
-        String ilkSekme = driver.getWindowHandle();
+        methods.click("ilk_urun_kart");
+        methods.switchToNewTab();
 
-        wait.until(ExpectedConditions.elementToBeClickable(ilkUrunKartLocater)).click();
-
-        wait.until(d -> driver.getWindowHandles().size() > 1);
-
-        for (String sekme : driver.getWindowHandles()) {
-            if (!sekme.equals(ilkSekme)) {
-                driver.switchTo().window(sekme);
-                break;
-            }
+        if (methods.isDisplayed("onboarding_primary_btn")) {
+            methods.click("onboarding_primary_btn");
         }
     }
 
     public String getUrunAdi(){
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(urunAdıLocater))
-                .getText().trim();
+        return methods.getText("urun_adi").trim();
     }
 
     public String getUrunFiyati(){
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(urunFiyatiLocater))
-                .getText().trim();
+        return methods.getText("urun_fiyati").trim();
     }
 }

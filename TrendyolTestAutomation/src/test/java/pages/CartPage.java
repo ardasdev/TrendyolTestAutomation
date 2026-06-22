@@ -1,61 +1,46 @@
 package pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
+import utils.Methods;
 
 public class CartPage {
 
     private WebDriver driver;
-    private WebDriverWait wait;
-
-    private By ilkUrunKartLocater = By.cssSelector("[data-product-index='0']");
-    private By ilkUrunButonLocater = By.cssSelector("[data-product-index='0'] .add-to-basket-button");
-    private By sepetUrunSayısıLocater = By.className("basket-count");
-    private By sepeteGitLocater = By.className("basket-wrapper-link");
-    private By sepetBaslikLocater = By.className("basket-header-title");
-    private By arttırButonLocater = By.cssSelector("[data-testid='quantity-button-increment'");
-    private By adetSelector = By.cssSelector("[data-testid='quantity-selector']");
+    private Methods methods = new Methods();
 
     public CartPage(WebDriver driver) {
-        this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+        this.driver = driver;   // hover gibi özel işler için lazım
     }
 
     public void ilkUrunuEkle(){
-        WebElement kart = wait.until(ExpectedConditions.presenceOfElementLocated(ilkUrunKartLocater));new Actions(driver).moveToElement(kart).perform();
-        wait.until(ExpectedConditions.elementToBeClickable(ilkUrunButonLocater)).click();
+
+        WebElement kart = methods.findElement("ilk_urun_kart");
+        new Actions(driver).moveToElement(kart).perform();
+        methods.click("ilk_urun_sepet_btn");
     }
 
     public String getSepetUrunSayisi(){
-
-        WebElement el = wait.until(
-                ExpectedConditions.visibilityOfElementLocated(sepetUrunSayısıLocater));
-        String metin = el.getText().trim();
+        String metin = methods.getText("sepet_urun_sayisi").trim();
         return metin.isEmpty() ? "0" : metin;
     }
 
     public void sepeteGit(){
-        wait.until(ExpectedConditions.elementToBeClickable(sepeteGitLocater)).click();
+        methods.click("sepete_git_link");
     }
 
     public String getSepetBaslik(){
-        return wait.until(
-                ExpectedConditions.visibilityOfElementLocated(sepetBaslikLocater)).getText().trim();
+        return methods.getText("sepet_baslik").trim();
     }
 
-    public void urunSayısıArttır(){
-        wait.until(ExpectedConditions.elementToBeClickable(arttırButonLocater)).click();
+    public void urunSayisiArttir(){
+        methods.click("adet_arttir_btn");
     }
 
     public String getAdetSayisi(String beklenen){
 
-        wait.until(ExpectedConditions.attributeToBe(adetSelector, "value", beklenen));
-        return driver.findElement(adetSelector).getAttribute("value").trim();
+        methods.waitForElementAttributeContains("adet_selector", "value", beklenen, 15);
+        return methods.findElement("adet_selector").getAttribute("value").trim();
     }
 }
