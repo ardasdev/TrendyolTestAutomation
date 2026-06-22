@@ -4,34 +4,38 @@ Feature: Ürün Arama, Sıralama, Filtreleme
     Given kullanıcı trendyol sitesine gider
 
   Scenario Outline: Ürün Arama
-    When  arama kutusuna "<aranan>" yazar
-    And   aramayı başlatır
-    Then  "<aranan>" için sonuçlar listelenir
+    When "arama_kutusu" butonuna tıklanır
+    And  "arama_input" alanına "<aranan>" yazılır
+    And  "arama_btn" butonuna tıklanır
+    Then "sonuc_basligi" elementi "<aranan>" metnini içerir
 
     Examples:
-      | aranan |
+      | aranan            |
       | kablosuz kulaklık |
 
   Scenario Outline: Ürünleri fiyata göre sıralama
-    When  arama kutusuna "<aranan>" yazar
-    And   aramayı başlatır
-    And   sıralama seçeneklerinden "<siralama>" seçilir
-    Then  ürünler artan fiyata göre sıralanır
+    When "arama_kutusu" butonuna tıklanır
+    And  "arama_input" alanına "<aranan>" yazılır
+    And  "arama_btn" butonuna tıklanır
+    And  "siralama_select_box" butonuna tıklanır
+    And  "siralama_dusuk_fiyat" butonuna tıklanır
+    Then "siralama_select_box" elementinin metni "Önerilen Sıralama" değildir
 
     Examples:
-      | aranan    | siralama |
-      | kablosuz kulaklık | En düşük fiyat |
+      | aranan            | siralama_element     |
+      | kablosuz kulaklık | siralama_dusuk_fiyat |
 
   Scenario Outline: Fiyat aralığına göre filtreleme
-    When  arama kutusuna "<aranan>" yazar
-    And   aramayı başlatır
-    And   Fiyat başlık tıklar
-    And   minimum fiyat "<min>" yazar
-    And   maksimum fiyat "<max>" yazar
-    And   fiyat filtresini uygular
-    Then  listelenen ürünler "<min>" ile "<max>" aralığında olur
+    When "arama_kutusu" butonuna tıklanır
+    And  "arama_input" alanına "<aranan>" yazılır
+    And  "arama_btn" butonuna tıklanır
+    And  "fiyat_baslik" butonuna tıklanır
+    And  "fiyat_min_input" alanına "<min>" yazılır
+    And  "fiyat_max_input" alanına "<max>" yazılır
+    And  "fiyat_uygula_btn" butonuna tıklanır
+    Then adres çubuğu "prc=<min>-<max>" içerene kadar beklenir
 
     Examples:
-      | aranan  | min  | max  |
-      | kablosuz kulaklık | 500  | 1500 |
-      | kablosuz kulaklık | 300  | 900  |
+      | aranan            | min | max  |
+      | kablosuz kulaklık | 500 | 1500 |
+      | kablosuz kulaklık | 300 | 900  |

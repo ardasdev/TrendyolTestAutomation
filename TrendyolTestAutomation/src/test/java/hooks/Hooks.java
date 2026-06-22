@@ -7,19 +7,17 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.DriverManager;
-import utils.ElementStore;          // YENİ
 
 import java.time.Duration;
-
 
 public class Hooks {
 
     @Before
     public void setUp() {
-        ElementStore.load();         // YENİ — elementleri bir kez oku
         DriverManager.getDriver().get("https://www.trendyol.com/");
-        popupKapat(DriverManager.getDriver());
-        cookieKapat(DriverManager.getDriver());
+        WebDriver driver = DriverManager.getDriver();
+        popupKapat(driver);
+        cookieKapat(driver);
     }
 
     private void popupKapat(WebDriver driver) {
@@ -31,6 +29,7 @@ public class Hooks {
 
         }
     }
+
     private void cookieKapat(WebDriver driver) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         try {
@@ -40,9 +39,9 @@ public class Hooks {
 
         }
     }
+
     @After
     public void tearDown() {
-
         DriverManager.closeDriver();
     }
 }

@@ -4,11 +4,15 @@ Feature: Ürün Detayı
     Given kullanıcı trendyol sitesine gider
 
   Scenario Outline: Ürün detayını görüntüleme
-    When  arama kutusuna "<aranan>" yazar
-    And   aramayı başlatır
-    And   listedeki ilk ürüne tıklar
-    Then  ürün adı ve fiyatı görüntülenir
+    When "arama_kutusu" butonuna tıklanır
+    And  "arama_input" alanına "<aranan>" yazılır
+    And  "arama_btn" butonuna tıklanır
+    And  "ilk_urun_kart" butonuna tıklanır
+    And  yeni sekmeye geçilir
+    And  onboarding kapatılır
+    Then "urun_adi" görüntülenir
+    And  "urun_fiyati" görüntülenir
 
     Examples:
-      | aranan |
+      | aranan            |
       | kablosuz kulaklık |

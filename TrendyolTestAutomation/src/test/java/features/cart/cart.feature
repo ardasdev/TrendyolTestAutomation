@@ -4,33 +4,36 @@ Feature: Sepet İşlemleri
     Given kullanıcı trendyol sitesine gider
 
   Scenario Outline: Ürünü sepete ekleme
-    When  arama kutusuna "<aranan>" yazar
-    And   aramayı başlatır
-    And   listedeki ilk ürünü sepete ekler
-    Then  ürün sepete eklenir
+    When "arama_kutusu" butonuna tıklanır
+    And  "arama_input" alanına "<aranan>" yazılır
+    And  "arama_btn" butonuna tıklanır
+    And  "ilk_urun_sepet_btn" butonuna tıklanır
+    Then "sepet_urun_sayisi" görüntülenir
 
     Examples:
-      | aranan |
+      | aranan            |
       | kablosuz kulaklık |
 
   Scenario Outline: Sepeti görüntüleme
-    When  arama kutusuna "<aranan>" yazar
-    And   aramayı başlatır
-    And   listedeki ilk ürünü sepete ekler
-    When  sepetim sayfasına gider
-    Then  sepetteki ürün görüntülenir
+    When "arama_kutusu" butonuna tıklanır
+    And  "arama_input" alanına "<aranan>" yazılır
+    And  "arama_btn" butonuna tıklanır
+    And  "ilk_urun_sepet_btn" butonuna tıklanır
+    And  "sepete_git_link" butonuna tıklanır
+    Then "adet_selector" görüntülenir
 
     Examples:
-      | aranan |
+      | aranan            |
       | kablosuz kulaklık |
 
   Scenario Outline: Sepetteki ürün adedini artırma
-    When  arama kutusuna "<aranan>" yazar
-    And   aramayı başlatır
-    And   listedeki ilk ürünü sepete ekler
-    When  sepetim sayfasına gider
-    And   ürünün adet artırma butonuna tıklar
-    Then  ürün adedi "<adet>" olur
+    When "arama_kutusu" butonuna tıklanır
+    And  "arama_input" alanına "<aranan>" yazılır
+    And  "arama_btn" butonuna tıklanır
+    And  "ilk_urun_sepet_btn" butonuna tıklanır
+    And  "sepete_git_link" butonuna tıklanır
+    And  "adet_arttir_btn" butonuna tıklanır
+    Then "adet_selector" elementinin değeri "<adet>" olur
 
     Examples:
       | aranan            | adet |

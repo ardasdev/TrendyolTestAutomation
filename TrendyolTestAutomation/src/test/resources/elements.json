@@ -49,6 +49,10 @@
     "value": "//div[contains(@class, 'product-card')]//span[contains(text(),'Aylık Trendyol Plus')]",
     "type": "xpath"
   },
+  { "key": "siralama_dusuk_fiyat",
+    "value": "select-option-PRICE_BY_ASC",
+    "type": "id"
+  },
   {
     "key": "favorites_menu_link",
     "value": "//p[text()='Favorilerim']/ancestor::div[contains(@class, 'link')]",
@@ -111,7 +115,7 @@
   },
   {
     "key": "urun_fiyati",
-    "value": ".ty-plus-price-discounted-price",
+    "value": ".new-price",
     "type": "css"
   },
   {
