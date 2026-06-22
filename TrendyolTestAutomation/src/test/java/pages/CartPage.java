@@ -5,15 +5,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import utils.Methods;
 
-public class CartPage {
+public class CartPage extends BasePage {
 
-    private WebDriver driver;
-    private Methods methods = new Methods();
 
     public CartPage(WebDriver driver) {
-        this.driver = driver;   // hover gibi özel işler için lazım
+        super(driver);
     }
-
     public void ilkUrunuEkle(){
 
         WebElement kart = methods.findElement("ilk_urun_kart");

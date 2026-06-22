@@ -1,13 +1,12 @@
 package pages;
 
 import org.openqa.selenium.WebDriver;
-import utils.Methods;
 
-public class HomePage {
+public class HomePage extends BasePage {
 
-    private Methods methods = new Methods();
-
-    public HomePage(WebDriver driver) { }
+    public HomePage(WebDriver driver) {
+        super(driver);
+    }
 
     public void elektrikButton(){
         methods.click("elektronik_tab");

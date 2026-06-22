@@ -3,7 +3,10 @@ Feature: Ana Sayfa
   Background:
     Given kullanıcı trendyol sitesine gider
 
-  Scenario: Kategori menüsünden gezinme
+  Scenario Outline: Kategori menüsünden gezinme
+    When  "<kategori>" kategorisine tıklar
+    Then  "<kategori>" kategorisindeki ürünler listelenir
 
-    When   Elektronik kategorisine tıklar
-    Then  "Elektronik" kategorisindeki ürünler listelenir
+    Examples:
+      | kategori   |
+      | Elektronik |

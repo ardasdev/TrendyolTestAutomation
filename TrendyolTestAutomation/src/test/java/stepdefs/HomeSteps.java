@@ -14,12 +14,11 @@ public class HomeSteps {
     HomePage homePage = new HomePage(driver);
 
 
-    @When("Elektronik kategorisine tıklar")
-    public void kategorisine_tıklar() {
-
+    @When("{string} kategorisine tıklar")
+    public void kategorisine_tiklar(String kategori) {
         homePage.elektrikButton();
-
     }
+
     @Then("{string} kategorisindeki ürünler listelenir")
     public void kategorisindeki_ürünler_listelenir(String kategoriAdi) {
 

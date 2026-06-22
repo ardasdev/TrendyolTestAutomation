@@ -1,13 +1,12 @@
 package pages;
 
 import org.openqa.selenium.WebDriver;
-import utils.Methods;
 
-public class SearchResultsPage {
+public class SearchResultsPage extends BasePage {
 
-    private Methods methods = new Methods();
-
-    public SearchResultsPage(WebDriver driver) { }
+    public SearchResultsPage(WebDriver driver) {
+        super(driver);
+    }
 
     public void aramaKutusunaGit(){
         methods.click("arama_kutusu");
@@ -31,7 +30,7 @@ public class SearchResultsPage {
 
     public void siralamaSec(String optionId){
         methods.click("siralama_select_box");
-        methods.clickById(optionId);          // dinamik id -> yeni eklenen metot
+        methods.clickById(optionId);
     }
 
     public String getSeciliSiralama() {

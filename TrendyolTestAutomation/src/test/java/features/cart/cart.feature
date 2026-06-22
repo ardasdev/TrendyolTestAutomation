@@ -2,18 +2,36 @@ Feature: Sepet İşlemleri
 
   Background:
     Given kullanıcı trendyol sitesine gider
-    When  arama kutusuna "kablosuz kulaklık" yazar
+
+  Scenario Outline: Ürünü sepete ekleme
+    When  arama kutusuna "<aranan>" yazar
     And   aramayı başlatır
     And   listedeki ilk ürünü sepete ekler
-
-  Scenario: Ürünü sepete ekleme
     Then  ürün sepete eklenir
 
-  Scenario: Sepeti görüntüleme
+    Examples:
+      | aranan |
+      | kablosuz kulaklık |
+
+  Scenario Outline: Sepeti görüntüleme
+    When  arama kutusuna "<aranan>" yazar
+    And   aramayı başlatır
+    And   listedeki ilk ürünü sepete ekler
     When  sepetim sayfasına gider
     Then  sepetteki ürün görüntülenir
 
-  Scenario: Sepetteki ürün adedini artırma
+    Examples:
+      | aranan |
+      | kablosuz kulaklık |
+
+  Scenario Outline: Sepetteki ürün adedini artırma
+    When  arama kutusuna "<aranan>" yazar
+    And   aramayı başlatır
+    And   listedeki ilk ürünü sepete ekler
     When  sepetim sayfasına gider
     And   ürünün adet artırma butonuna tıklar
-    Then  ürün adedi "2" olur
+    Then  ürün adedi "<adet>" olur
+
+    Examples:
+      | aranan            | adet |
+      | kablosuz kulaklık | 2    |

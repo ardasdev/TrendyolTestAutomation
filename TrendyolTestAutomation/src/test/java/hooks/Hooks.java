@@ -19,6 +19,7 @@ public class Hooks {
         ElementStore.load();         // YENİ — elementleri bir kez oku
         DriverManager.getDriver().get("https://www.trendyol.com/");
         popupKapat(DriverManager.getDriver());
+        cookieKapat(DriverManager.getDriver());
     }
 
     private void popupKapat(WebDriver driver) {
@@ -30,9 +31,18 @@ public class Hooks {
 
         }
     }
+    private void cookieKapat(WebDriver driver) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        try {
+            wait.until(ExpectedConditions.elementToBeClickable(
+                    By.id("onetrust-reject-all-handler"))).click();
+        } catch (Exception e) {
 
+        }
+    }
     @After
     public void tearDown() {
+
         DriverManager.closeDriver();
     }
 }
