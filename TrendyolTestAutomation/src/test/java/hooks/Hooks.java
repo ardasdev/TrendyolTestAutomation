@@ -14,10 +14,10 @@ public class Hooks {
 
     @Before
     public void setUp() {
-        DriverManager.getDriver().get("https://www.trendyol.com/");
-        WebDriver driver = DriverManager.getDriver();
-        popupKapat(driver);
-        cookieKapat(driver);
+      //  DriverManager.getDriver().get("https://www.trendyol.com/");
+      //  WebDriver driver = DriverManager.getDriver();
+      //  popupKapat(driver);
+      //  cookieKapat(driver);
     }
 
     private void popupKapat(WebDriver driver) {

@@ -1,7 +1,7 @@
 Feature: Ürün Detayı
 
   Background:
-    Given kullanıcı trendyol sitesine gider
+    Given kullanıcı "https://www.trendyol.com/" sitesine gider
 
   Scenario Outline: Ürün detayını görüntüleme
     When "arama_kutusu" butonuna tıklanır

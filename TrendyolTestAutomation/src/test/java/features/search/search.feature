@@ -1,7 +1,7 @@
 Feature: Ürün Arama, Sıralama, Filtreleme
 
   Background:
-    Given kullanıcı trendyol sitesine gider
+    Given kullanıcı "https://www.trendyol.com/" sitesine gider
 
   Scenario Outline: Ürün Arama
     When "arama_kutusu" butonuna tıklanır

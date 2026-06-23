@@ -7,6 +7,7 @@ import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import utils.Config;
 import utils.DriverManager;
 import utils.ElementReader;
 
@@ -113,5 +114,13 @@ public class CommonSteps {
             return !t.isEmpty() && !t.equals(istenmeyen);
         });
 
+    }
+    @When("{string} alanına config {string} değeri yazılır")
+    public void alana_config_yazilir(String key, String configKey) {
+        org.openqa.selenium.WebElement el =
+                wait.until(org.openqa.selenium.support.ui.ExpectedConditions
+                        .visibilityOfElementLocated(by(key)));
+        el.clear();
+        el.sendKeys(Config.get(configKey));
     }
 }

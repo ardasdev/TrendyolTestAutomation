@@ -1,7 +1,7 @@
 Feature: Ana Sayfa
 
   Background:
-    Given kullanıcı trendyol sitesine gider
+    Given kullanıcı "https://www.trendyol.com/" sitesine gider
 
   Scenario Outline: Kategori menüsünden gezinme
     When "<kategori_element>" butonuna tıklanır

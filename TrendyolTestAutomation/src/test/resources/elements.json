@@ -5,11 +5,6 @@
     "type": "id"
   },
   {
-    "key": "login_pw_field",
-    "value": "login-password-input",
-    "type": "id"
-  },
-  {
     "key": "submit_btn",
     "value": "button[type='submit']",
     "type": "css"
@@ -118,6 +113,7 @@
     "value": ".new-price",
     "type": "css"
   },
+
   {
     "key": "arama_kutusu",
     "value": ".suggestion-placeholder",
@@ -163,9 +159,32 @@
     "value": "price-range-input-max",
     "type": "id"
   },
+  { "key": "email_devam_btn",
+    "value": "button[data-testid='email-check-button']",
+    "type": "css" },
   {
     "key": "fiyat_uygula_btn",
     "value": ".price-range-button",
     "type": "css"
-  }
+  },
+
+  { "key": "giris_yap_link",
+    "value": "//p[contains(text(),'Giriş Yap')]",
+    "type": "xpath" },
+
+  { "key": "hesabim_text",
+    "value": "//p[text()='Hesabım']",
+    "type": "xpath" },
+
+  { "key": "login_pw_field",
+    "value": "login-password",
+    "type": "id" },
+
+  { "key": "giris_btn",
+    "value": "button[data-testid='login-button']",
+    "type": "css" },
+
+  { "key": "hesap_olustur_text",
+    "value": "h1.page-title",
+    "type": "css" }
 ]
